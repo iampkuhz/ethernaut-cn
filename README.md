@@ -1,66 +1,28 @@
-## Foundry
+# ethernaut-cn
+ethernaut 学习笔记，记录解题思路和中间遇到的问题。
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+建议先看下我的环境配置。
 
-Foundry consists of:
+| level | 概述 |
+| --- |--- |
+|[level1_fallback](level1_fallback/README.md)|利用fallback处理|
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## 环境配置
+1. 有些涉及调试过程和测试代码，我使用的vscode + foundry开发测试。vscode为了对foundry的工程有更好的适配，建议做如下配置
 
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+```json
+{
+    ...
+    "solidity.remappings": [
+        "forge-std/=lib/forge-std/src/",
+        "@openzeppelin/=lib/openzeppelin-contracts/"
+    ],
+    "solidity.packageDefaultDependenciesContractsDirectory": "lib",
+    "solidity.packageDefaultDependenciesDirectory": "src",
+    "[solidity]": {
+        "editor.defaultFormatter": "JuanBlanco.solidity"
+    },
+    "solidity.formatter": "forge"
+    ...
+}
 ```
