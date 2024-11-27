@@ -3,4 +3,7 @@ src = "src"
 out = "out"
 libs = ["lib"]
 
-# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+# 需要在根目录下创建自己的 `.env` 文件并配置值
+rpc_url = "${HOLESKY_RPC_URL}"
+# sepolia 的chainid
+chain_id = 11155111
