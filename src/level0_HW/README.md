@@ -53,6 +53,7 @@
 ```bash
 'ethernaut0'
 ```
+- ethernaut的浏览器控制台支持直接输入`contract`, 他会展示合约的ABI，我们苦役看到他的所有函数列表
 
 10. 重新 `await contract.authenticate('ethernaut0')`, 会唤起metamask执行
 
