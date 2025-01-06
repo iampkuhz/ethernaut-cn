@@ -2,7 +2,6 @@
 pragma solidity ^0.8.0;
 
 interface Delegation {
-
     // 直接调用pwn函数，实际上Delegation合约会通过delegatecall调用Delegate的pwn来执行
     function pwn() external;
 
