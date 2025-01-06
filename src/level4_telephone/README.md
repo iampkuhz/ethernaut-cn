@@ -2,7 +2,26 @@
 
 ## 1. 问题
 
-将合约的owner设置成自己的地址
+将`Telephone`合约的owner设置成自己的地址
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Telephone {
+    address public owner;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    function changeOwner(address _owner) public {
+        if (tx.origin != msg.sender) {
+            owner = _owner;
+        }
+    }
+}
+```
 
 
 ## 2. 解法

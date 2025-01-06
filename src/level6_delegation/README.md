@@ -3,6 +3,40 @@
 ## 1. 问题
 将`Delegation`合约的owner修改为自己的账户地址。
 
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Delegate {
+    address public owner;
+
+    constructor(address _owner) {
+        owner = _owner;
+    }
+
+    function pwn() public {
+        owner = msg.sender;
+    }
+}
+
+contract Delegation {
+    address public owner;
+    Delegate delegate;
+
+    constructor(address _delegateAddress) {
+        delegate = Delegate(_delegateAddress);
+        owner = msg.sender;
+    }
+
+    fallback() external {
+        (bool result,) = address(delegate).delegatecall(msg.data);
+        if (result) {
+            this;
+        }
+    }
+}
+```
+
 ## 2. 解法
 本题初始部署了2个合约`Delegation`和`Delegate`, 前者记录了后者地址，并在fallback函数里面通过delegatecall调用了`delegate`合约。
 

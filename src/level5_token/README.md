@@ -1,7 +1,32 @@
 # level5 token
 
 ## 1. 问题
-要求修改这个token合约中，你的地址对应的余额，需要将你自己的余额增加。
+要求修改这个`Token`合约，将这个合约中你的地址对应的余额增加。
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
+
+contract Token {
+    mapping(address => uint256) balances;
+    uint256 public totalSupply;
+
+    constructor(uint256 _initialSupply) public {
+        balances[msg.sender] = totalSupply = _initialSupply;
+    }
+
+    function transfer(address _to, uint256 _value) public returns (bool) {
+        require(balances[msg.sender] - _value >= 0);
+        balances[msg.sender] -= _value;
+        balances[_to] += _value;
+        return true;
+    }
+
+    function balanceOf(address _owner) public view returns (uint256 balance) {
+        return balances[_owner];
+    }
+}
+```
 
 ## 2. 解法
 虽然这个合约总的发行量比较大，但是别的用户都是我们掌控不了的，不能让别的持有余额的地址给我们转token，所以我们只能使用其漏洞修改自己的余额。
@@ -37,7 +62,7 @@ chisel --use 0.6.12 --evm-version istanbul
 ```solidity
 uint256 a1=20;
 uint256 a2=30;
-uint256 a1=a1-a2;
+uint256 a3=a1-a2;
 a3
 
 uint256 b1=1<<255;
@@ -45,3 +70,5 @@ uint256 b2=b1-10;
 uint256 b3=b2+b1;
 b3
 ```
+
+![](../../resources/img/level5/chisel_cmd.jpg)

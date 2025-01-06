@@ -3,14 +3,16 @@ ethernaut 学习笔记，记录解题思路和中间遇到的问题。
 
 建议先看下我的环境配置。
 
-| level | 概述 |
-| --- |--- |
-|[HelloEthernaut](src/leve0_HW/README.md)|了解如何用浏览器控制台在ethernaut中交互|
-|[level1_fallback](src/level1_fallback/README.md)|了解fallback/receive函数, 提供ethernaut命令行和remix两种解决方法|
-|[level2_fallout](src/level2_fallout/README.md)|了解constructor构造函数|
-|[level3_coinflip](src/level3_coinflip/README.md)|了解合约的可预测性，调用前模拟调用结果|
-|[level4_telephone](src/level4_telephone/README.md)|了解tx.origin和tx.sender差别|
-|[level5_token](src/level5_token/README.md)|老版本solidity中uint溢出漏洞|
+| level |标题| 概述 |
+| --- |---|--- |
+|level0|[HelloEthernaut](src/leve0_HW/README.md)|了解如何用浏览器控制台在ethernaut中交互|
+|level1|[fallback](src/level1_fallback/README.md)|了解fallback/receive函数, 提供ethernaut命令行和remix两种解决方法|
+|level2|[fallout](src/level2_fallout/README.md)|了解constructor构造函数|
+|level3|[coinflip](src/level3_coinflip/README.md)|了解合约的可预测性，调用前模拟调用结果|
+|level4|[telephone](src/level4_telephone/README.md)|了解tx.origin和tx.sender差别|
+|level5|[token](src/level5_token/README.md)|老版本solidity中uint溢出漏洞|
+|level6|[delegation](src/level6_delegation/README.md)|学习如何使用delegatecall|
+|level7|[force](src/level7_force/README.md)|了解`selfdestruct`用法|
 
 
 ## 环境配置

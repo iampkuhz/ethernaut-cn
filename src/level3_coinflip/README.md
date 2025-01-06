@@ -1,7 +1,39 @@
 # level3 coin flip
 
 ## 1. 问题
-要求是连续10次调用flip函数，每次都需要猜测成功函数的执行结果。
+要求是连续10次调用`CoinFlip`合约的flip函数，每次都需要猜测成功函数的执行结果。
+
+```solidity
+contract CoinFlip {
+    uint256 public consecutiveWins;
+    uint256 lastHash;
+    uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;
+
+    constructor() {
+        consecutiveWins = 0;
+    }
+
+    function flip(bool _guess) public returns (bool) {
+        uint256 blockValue = uint256(blockhash(block.number - 1));
+
+        if (lastHash == blockValue) {
+            revert();
+        }
+
+        lastHash = blockValue;
+        uint256 coinFlip = blockValue / FACTOR;
+        bool side = coinFlip == 1 ? true : false;
+
+        if (side == _guess) {
+            consecutiveWins++;
+            return true;
+        } else {
+            consecutiveWins = 0;
+            return false;
+        }
+    }
+}
+```
 
 ## 2. 解法
 
