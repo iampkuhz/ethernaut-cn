@@ -13,6 +13,9 @@ ethernaut 学习笔记，记录解题思路和中间遇到的问题。
 |level5|[token](src/level5_token/README.md)|老版本solidity中uint溢出漏洞|
 |level6|[delegation](src/level6_delegation/README.md)|学习如何使用delegatecall|
 |level7|[force](src/level7_force/README.md)|了解`selfdestruct`用法|
+|level8|[vault](src/level8_vault/README.md)|理解solidity中不存在真正private的变量，掌握读取storage内容的方法|
+|level9|[king](src/level9_king/README.md)|了解receive函数的触发和执行特点|
+
 
 
 ## 环境配置
