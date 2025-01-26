@@ -1,8 +1,8 @@
-# level9 king
+# level9 King
 
 # 1. 问题
 
-要求你成为`King`合约的owner，切别的合约无法替代你成为owner。
+要求你成为`King`合约的owner，且别的合约无法替代你成为owner。
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -34,10 +34,10 @@ contract King {
 
 # 2. 解法
 
-整体的思路分为2步：
+整体思路分为两步：
 
-1. 首先给`King`合约转入eth，触发其receive函数逻辑执行，使自己成为owner
-2. 使破坏receive()正常执行，使得其他合约或EOA触发`King`的receive函数执行时都失败，从而避免别人成为owner
+1. 首先向 `King` 合约转入 ETH，触发其 `receive` 函数逻辑执行，成为 `owner`。
+2. 通过破坏 `receive()` 的正常执行，确保其他合约或 EOA 无法成功调用 `King` 的 `receive` 函数，从而避免被取代为 `owner`。
 
 为了实现这个功能，我们将合约设计如下：
 
@@ -70,7 +70,9 @@ contract UnchangedKing {
 1. 代码部署到remix，编译
 
 2. 部署，参数填上合约地址 
-   * 注意合约初始化的参数要填instance的地址，不要填错橙了level的地址了
+
+> [!TIP]
+> 注意，合约初始化时的参数应填写 `instance` 的地址，而非 `level` 的地址。
 
 3. 先查询下浏览器，看下合约目前有多少eth, 发现是1 finney
 
@@ -81,8 +83,11 @@ contract UnchangedKing {
 
 # 3. 补充阅读：调试
 
-开始的时候，我们采用了`require(msg.value < 1, "reject be overtaken!");`的写法，发现不能通过，所以便携了一个调试程序[Level9_localTest.t.sol](../../test/level9/Level9_localTest.t.sol), 可以在项目根目录执行下面命令调试运行：
+起初，我们尝试了 `require(msg.value < 1, "reject be overtaken!");` 的写法，但发现无法通过。因此，我们编写了一个调试程序 [Level9_localTest.t.sol](../../test/level9/Level9_localTest.t.sol)。你可以在项目根目录执行以下命令进行调试：
 
 ```bash
 forge test -vvvv --match-contract Level9LocalTest
 ```
+
+| [⬅️ level8 Vault](../level8_vault/README.md) | [level10 Reentrancy ➡️](../level10_reentrancy/README.md) |
+|:------------------------------|--------------------------:|

@@ -1,8 +1,8 @@
-# level8 vault
+# level8 Vault
 
 # 1. 问题
 
-要求你将合约`Vault`中的`locked`字段设置为false。
+要求将 `Vault` 合约中的 `locked` 字段设置为 `false`。
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -27,23 +27,29 @@ contract Vault {
 
 # 2. 解法
 
-这个题目是想告诉你, 在solidity中，不存在真正的`private`的字段。private的变量，并不是真的看不到，只是说其他合约无法直接读取，但是区块链数据是公开的，大家还是有别的办法看到的
-> 类比一下，就好像你看没办法通过sql命令，看到mysql服务在服务器上安装的路径，但是你可以登录服务器看看到底安装在哪里了
+这个题目想要说明，在 Solidity 中**不存在**真正意义上的 `private` 字段。
 
-1. 我们使用第三方的合约storage读取工具查看这个`Vault`合约中password的变量值。这里我们使用使用alchemy提供的[https://composer.alchemy.com/](https://composer.alchemy.com/) 服务
+`private` 变量并不是真的不可见，只是无法通过其他合约直接访问。但由于区块链上的数据是公开的，因此仍可以通过其他方式读取这些数据。
 
-    * 选择sepolia，RPC选择 `eth_getStorageAt`
-    * 第一个参数填合约地址 `0x3e29b36BC702241A8581510A714cb323E92e55B4`
-    * 第二个参数选择slot的index，我们选择`0x01`（第二个）
+> 类比一下，这就好比你无法通过 SQL 命令直接查看 MySQL 服务的安装路径，但仍然可以登录服务器查看其具体安装位置。
 
-2. 查询得到结果 `0x412076657279207374726f6e67207365637265742070617373776f7264203a29`
+1. 使用第三方合约存储读取工具查看 `Vault` 合约中 `password` 变量的值。这里使用 Alchemy 提供的服务：[Alchemy Composer](https://composer.alchemy.com/)。
 
-![](../../resources/img/level8/getstorageAt.jpg)
+    * 选择网络为 Sepolia，RPC 方法选择 `eth_getStorageAt`。
+    * 第一个参数填写合约地址：`0x3e29b36BC702241A8581510A714cb323E92e55B4`。
+    * 第二个参数填写存储槽索引：`0x01`（对应第二个槽）。
+
+2. 查询结果为：`0x412076657279207374726f6e67207365637265742070617373776f7264203a29`。
+
+![](../../resources/img/level8/getstorageAt.png)
 
 3. 合约代码复制到remix里面，编译，然后选择`at address`，创建一个实例
 
-4. 调用一下`unlock`，并且把上面的结果作为参数传入，发起交易 [0x487324a8efeaa57c5e44fd1ff538ed3382b09da71412b5d8ce4c2ef3d7268ebe](https://sepolia.etherscan.io/tx/0x487324a8efeaa57c5e44fd1ff538ed3382b09da71412b5d8ce4c2ef3d7268ebe)
+4. 调用 `unlock` 方法，将上述结果作为参数传入并发起交易：[交易链接](https://sepolia.etherscan.io/tx/0x487324a8efeaa57c5e44fd1ff538ed3382b09da71412b5d8ce4c2ef3d7268ebe)。
 
-5. 点击`locked`，发现返回false了
+5. 调用 `locked` 方法，确认返回值为 `false`。
 
-6. 提交交易 [0xea1111d1fae932c6262a3cb5e82f243cf92e9cd0733cdc00df4556155b188d19](https://sepolia.etherscan.io/tx/0xea1111d1fae932c6262a3cb5e82f243cf92e9cd0733cdc00df4556155b188d19)，成功！
+6. 点击 `submit instance`， 提交通过！
+
+| [⬅️ level7 Force](../level7_force/README.md) | [level7 King ➡️](../level9_king/README.md) |
+|:------------------------------|--------------------------:|

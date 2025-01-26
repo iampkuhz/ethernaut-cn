@@ -1,7 +1,8 @@
-# level3 coin flip
+# level3 Coin Flip
 
 ## 1. 问题
-要求是连续10次调用`CoinFlip`合约的flip函数，每次都需要猜测成功函数的执行结果。
+
+要求连续 10 次调用 `CoinFlip` 合约的 `flip` 函数，并且每次都需要成功猜中函数的执行结果。
 
 ```solidity
 contract CoinFlip {
@@ -37,9 +38,11 @@ contract CoinFlip {
 
 ## 2. 解法
 
-因为合约是白盒，每次执行结果是可预期、可预测的，所以我们的思路就是创建一个合约，然后这个合约每次调用coinflip合约，在调用前，自己执行下同样的计算逻辑，算出来本次合约调用时结果是什么，然后调用flip函数时使用该结果。
+由于合约是白盒，每次执行结果都是可预期且可预测的。因此，我们的思路是创建一个合约，该合约在每次调用 `CoinFlip` 合约的 `flip` 函数之前，先执行相同的计算逻辑，预先算出本次调用的结果，并将该结果传递给 `flip` 函数。
 
-因为合约中做了`lastHash`的记录和判断，所以我们如果在一次合约调用时，for循环连续调用flip函数10次，第二次开始，flip中的`lastHash == blockValue`判断就会拒绝执行。
+
+> [!WARNING]
+> 无法通过for循环一次调用解决问题：因为合约中做了`lastHash`的记录和判断，所以我们如果在一次合约调用时，for循环连续调用flip函数10次，第二次开始，flip中的`lastHash == blockValue`判断就会拒绝执行。
 
 1. 我们编写的合约如下：
 
@@ -78,17 +81,23 @@ contract Guess {
 
 3. 部署，输入CoinFlip合约地址作为入参，remix会唤起metamask[提交交易到sepolia](https://sepolia.etherscan.io/tx/0x5a0344ababcf99673eb4b576e2cb4290838c296332d2174a196b1b70b99ff0da)
 
-4. 我们的Guess合约被部署到：[https://sepolia.etherscan.io/address/0x9cb0fd719a20f7dcc576845217d096614782e8e5](https://sepolia.etherscan.io/address/0x9cb0fd719a20f7dcc576845217d096614782e8e5)
+4. 我们的Guess合约被部署到：[0x9cb0fd719a20f7dcc576845217d096614782e8e5](https://sepolia.etherscan.io/address/0x9cb0fd719a20f7dcc576845217d096614782e8e5)
 
-5. 正式开始前，通过ethernaut控制台，确认项当前的次数，确认是0：
+5. 正式开始前，通过 Ethernaut 控制台，查询当前的 `consecutiveWins`，确认值为 0：
+
 ```bash
 await contract.consecutiveWins().then(v => v.toString())
 ```
 
-6. 通过remix调用`run`函数：[0xfa434890083a128c93e92046c938eec58040ced7bf050cdb0dd6f8bdd5370d7d](https://sepolia.etherscan.io/tx/0xfa434890083a128c93e92046c938eec58040ced7bf050cdb0dd6f8bdd5370d7d)
+6. 通过 Remix 调用 `run` 函数：[交易链接](https://sepolia.etherscan.io/tx/0xfa434890083a128c93e92046c938eec58040ced7bf050cdb0dd6f8bdd5370d7d)
 
-7. 通过ethernaut控制台，确认项当前的次数，确认已经更新到1了
+
+7. 通过 Ethernaut 控制台，查询 `consecutiveWins`，确认已更新为 1。
 
 8. 重复执行9次
 
 9. 点击 `submit instance`， 提交通过！
+
+
+| [⬅️ level2 Fallout](../level2_fallout/README.md) | [level4 Telephone ➡️](../level4_telephone/README.md) |
+| :---------------------------------------------- | --------------------------------------------------: |
