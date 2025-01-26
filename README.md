@@ -6,16 +6,16 @@ ethernaut 学习笔记，记录解题思路和中间遇到的问题。
 
 | level |标题| 概述 |
 | --- |---|--- |
-|level0|[HelloEthernaut](src/leve0_HW/README.md)|了解如何用浏览器控制台在ethernaut中交互|
-|level1|[fallback](src/level1_fallback/README.md)|了解fallback/receive函数, 提供ethernaut命令行和remix两种解决方法|
-|level2|[fallout](src/level2_fallout/README.md)|了解constructor构造函数|
-|level3|[coinflip](src/level3_coinflip/README.md)|了解合约的可预测性，调用前模拟调用结果|
-|level4|[telephone](src/level4_telephone/README.md)|了解tx.origin和tx.sender差别|
-|level5|[token](src/level5_token/README.md)|老版本solidity中uint溢出漏洞|
-|level6|[delegation](src/level6_delegation/README.md)|学习如何使用delegatecall|
-|level7|[force](src/level7_force/README.md)|了解`selfdestruct`用法|
-|level8|[vault](src/level8_vault/README.md)|理解solidity中不存在真正private的变量，掌握读取storage内容的方法|
-|level9|[king](src/level9_king/README.md)|了解receive函数的触发和执行特点|
+|level0|[HelloEthernaut](src/level0_HW/README.md)|了解如何用浏览器控制台在ethernaut中交互|
+|level1|[Fallback](src/level1_fallback/README.md)|了解fallback/receive函数, 提供ethernaut命令行和remix两种解决方法|
+|level2|[Fallout](src/level2_fallout/README.md)|了解constructor构造函数|
+|level3|[Coinflip](src/level3_coinflip/README.md)|了解合约的可预测性，调用前模拟调用结果|
+|level4|[Telephone](src/level4_telephone/README.md)|了解tx.origin和tx.sender差别|
+|level5|[Token](src/level5_token/README.md)|老版本solidity中uint溢出漏洞|
+|level6|[Delegation](src/level6_delegation/README.md)|学习如何使用delegatecall|
+|level7|[Force](src/level7_force/README.md)|了解`selfdestruct`用法|
+|level8|[Vault](src/level8_vault/README.md)|理解solidity中不存在真正private的变量，掌握读取storage内容的方法|
+|level9|[King](src/level9_king/README.md)|了解receive函数的触发和执行特点|
 
 
 
