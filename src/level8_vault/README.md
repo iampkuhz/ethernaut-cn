@@ -51,5 +51,5 @@ contract Vault {
 
 6. 点击 `submit instance`， 提交通过！
 
-| [⬅️ level7 Force](../level7_force/README.md) | [level7 King ➡️](../level9_king/README.md) |
+| [⬅️ level7 Force](../level7_force/README.md) | [level9 King ➡️](../level9_king/README.md) |
 |:------------------------------|--------------------------:|
