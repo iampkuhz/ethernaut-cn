@@ -56,6 +56,12 @@ if (balances[msg.sender] >= _amount) {
 
 通过循环第二次进入时，因为第一次还没有走到 `balances[msg.sender] -= _amount;` 余额扣减，所以二次调用时条件仍然满足，产生重入漏洞。
 
+> [!CAUTION]
+> * **CEI** 原则：防止重入攻击，的核心原则是采用检查-影响-交互模式（Checks-Effects-Interactions）
+>    1. 先检查是否满足触发条件
+>    2. 再更新（余额）等数据状态
+>    3. 最后和外部交互
+
 具体操作流程如下：
 
 1. 编写 `HackReentrancy` 合约：
@@ -103,6 +109,9 @@ contract HackReentrancy {
     }
 }
 ```
+
+> [!NOTE]
+> 这里我们使用了 `fallback` 实现，也可以通过 `receive` 实现
 
 2. 在remix中编译，部署到sepolia上，[交易地址](https://sepolia.etherscan.io/tx/0x1d27b1e3efc72356ce6b9182d4edb9aad42d17d15e9406c8a41917df3992fbcc)
 
@@ -158,6 +167,9 @@ if (balances[msg.sender] >= _amount) {
     balances[msg.sender] -= _amount;
 }
 ```
+
+> [!NOTE]
+> 到这里我们可以发现，如果原始合约中 `balances[msg.sender] -= _amount;` 也使用了 `SafeMath` 库做越界校验，也能避免重入攻击
 
 | [⬅️ level9 King](../level9_king/README.md) | [level11  ➡️]() |
 |:------------------------------|--------------------------:|

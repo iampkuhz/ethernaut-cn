@@ -16,11 +16,12 @@ ethernaut 学习笔记，记录解题思路和中间遇到的问题。
 |level7|[Force](src/level7_force/README.md)|了解`selfdestruct`用法|
 |level8|[Vault](src/level8_vault/README.md)|理解solidity中不存在真正private的变量，掌握读取storage内容的方法|
 |level9|[King](src/level9_king/README.md)|了解receive函数的触发和执行特点|
+|level10|[Reentrancy](src/level10_reentrancy/README.md)|了解重入漏洞和对应防护方式|
 
 
 
 ## 环境配置
-1. 有些涉及调试过程和测试代码，我使用的vscode + foundry开发测试。vscode为了对foundry的工程有更好的适配，建议做如下配置
+1. 有些涉及调试过程和测试代码，我使用的 `vscode + foundry` 开发测试。为了对 `foundry` 的工程有更好的适配，建议 `vscode` 做如下配置
 
 ```json
 {
