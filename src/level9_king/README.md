@@ -1,6 +1,6 @@
 # level9 King
 
-# 1. 问题
+## 1. 问题
 
 要求你成为`King`合约的owner，且别的合约无法替代你成为owner。
 
@@ -32,7 +32,7 @@ contract King {
 }
 ```
 
-# 2. 解法
+## 2. 解法
 
 整体思路分为两步：
 
@@ -81,7 +81,7 @@ contract UnchangedKing {
 5. submit instance，通过！
 
 
-# 3. 补充阅读：调试
+## 3. 补充阅读：调试
 
 起初，我们尝试了 `require(msg.value < 1, "reject be overtaken!");` 的写法，但发现无法通过。因此，我们编写了一个调试程序 [Level9_localTest.t.sol](../../test/level9/Level9_localTest.t.sol)。你可以在项目根目录执行以下命令进行调试：
 

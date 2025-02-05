@@ -1,6 +1,6 @@
 # level8 Vault
 
-# 1. 问题
+## 1. 问题
 
 要求将 `Vault` 合约中的 `locked` 字段设置为 `false`。
 
@@ -25,7 +25,7 @@ contract Vault {
 }
 ```
 
-# 2. 解法
+## 2. 解法
 
 这个题目想要说明，在 Solidity 中**不存在**真正意义上的 `private` 字段。
 
