@@ -1,8 +1,4 @@
 # ethernaut-cn
-ethernaut 学习笔记，记录解题思路和中间遇到的问题。
-
-> [!NOTE]
-> 建议先看下我的环境配置。
 
 | level |标题| 概述 |
 | --- |---|--- |
@@ -17,6 +13,8 @@ ethernaut 学习笔记，记录解题思路和中间遇到的问题。
 |level8|[Vault](src/level8_vault/README.md)|理解solidity中不存在真正private的变量，掌握读取storage内容的方法|
 |level9|[King](src/level9_king/README.md)|了解receive函数的触发和执行特点|
 |level10|[Reentrancy](src/level10_reentrancy/README.md)|了解重入漏洞和对应防护方式|
+|level11|[Elevator](src/level11_elevator/README.md)|合约函数如何实现同样入参在不同的调用点返回不同的值|
+|level12|[Privacy](src/level12_privacy/README.md)|合约storage存储规则入门|
 
 
 

@@ -170,5 +170,5 @@ if (balances[msg.sender] >= _amount) {
 > [!NOTE]
 > 到这里我们可以发现，如果原始合约中 `balances[msg.sender] -= _amount;` 也使用了 `SafeMath` 库做越界校验，也能避免重入攻击
 
-| [⬅️ level9 King](../level9_king/README.md) | [level11  ➡️]() |
+| [⬅️ level9 King](../level9_king/README.md) | [level11 Elevator ➡️](../level11_elevator/README.md) |
 |:------------------------------|--------------------------:|
