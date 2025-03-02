@@ -77,7 +77,7 @@ contract Privacy {
 
 > [!TIP]
 > 这里我们可以通过 `chisel` 来验证我们的说法：
-> ![](../../resources/img/level12/chisel_bytes16.png)
+![](../../resources/img/level12/chisel_bytes16.png)
 
 5. 在remix中调用 `unlock` 函数，输入 `0xd7263e7843c32a80db8fa86986e73ce5` , [交易链接](https://sepolia.etherscan.io/tx/0xff32d4cc9e5aa145914647dd9ff8b1658b4d0d84e130a9e8e70d859b89d93b1b)
 
