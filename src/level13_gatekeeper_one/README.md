@@ -2,7 +2,7 @@
 
 ## 1. 问题
 
-要求你成功调用 `GatekeeperOne` 合约的 `enter` 函数，函数成功执行，可以通过函数内的所有校验。
+要求你成功调用 `GatekeeperOne` 合约的 `enter` 函数，函数成功执行不抛异常。也就是可以通过函数内的所有校验。
 
 ```solidity
 // SPDX-License-Identifier: MIT
