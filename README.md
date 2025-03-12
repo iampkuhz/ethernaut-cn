@@ -1,6 +1,6 @@
 # ethernaut-cn
 
-| level |标题| 概述 |
+| level |标题| 考察点 |
 | --- |---|--- |
 |level0|[HelloEthernaut](src/level0_HW/README.md)|了解如何用浏览器控制台在ethernaut中交互|
 |level1|[Fallback](src/level1_fallback/README.md)|了解fallback/receive函数, 提供ethernaut命令行和remix两种解决方法|
@@ -17,6 +17,7 @@
 |level12|[Privacy](src/level12_privacy/README.md)|合约storage存储规则入门|
 |level13|[GatekeeperOne](src/level13_gatekeeper_one/README.md)|变量转换逻辑和跨合约调用的gas限制|
 |level14|[GatekeeperTwo](src/level14_gatekeeper_two/README.md)|contructor函数中调用外部合约的特殊逻辑|
+|level15|[NaughtCoin](src/level15_naughtcoin/README.md)|`ERC-20`常见接口的使用方式|
 
 
 
