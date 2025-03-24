@@ -81,7 +81,7 @@ interface INaughtCoin {
 ![](../../resources/img/level15/transferfrom2.png)
 
 
-> ![TIP]
+> [!TIP]
 > 在remix中，如果要切换 metamask 的账号，需要在 metamask 里面的老账号右上角点击 `disconnect`
 > ![](../../resources/img/level15/disconnect2.png)
 

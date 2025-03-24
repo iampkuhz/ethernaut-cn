@@ -52,7 +52,7 @@ contract GatekeeperTwo {
 
 2. `gateTwo` 要求 `extcodesize(caller())` 值为 0. 这个看似要求调用方不是合约地址。但是实际上在合约部署时，合约的 `constructor` 函数内调用其他合约时，因为当前合约没有部署完成，所以 `extcodesize(**)` 会返回 `0`。
 
-> ![NOTE]
+> [!NOTE]
 > 1. 如果单纯想判断调用方是否是EOA，使用 `tx.origin == msg.sender` 来判断更准确
 > 2. 真实情况，绝大部分合约的接口都需要支持合约调用，这个校验不可能部署到所有接口，适用场景有限
 
@@ -74,7 +74,7 @@ contract HackGatekeeperTwo {
 }
 ```
 
-> ![TIP]
+> [!TIP]
 > 这里我们提供一个测试文件 [Level14.t.sol](../../test/level14/Level14.t.sol)
 > 可以在提交之前进行本地调试，调试成功再在测试链上执行
 
