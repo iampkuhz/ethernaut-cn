@@ -88,5 +88,8 @@ interface INaughtCoin {
 
 5. 点击 `submit instance`， 提交通过！
 
+
+<br/>
+<br/>
 | [⬅️ level14 GatekeeperTwo](../level14_gatekeeper_two/README.md) | [level16 Preservation ➡️](../level16_preservation/README.md) |
 |:------------------------------|--------------------------:|

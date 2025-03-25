@@ -82,5 +82,8 @@ contract Building {
 > 3. 容易因为最后的某次失败导致总体失败
 > 4. 链路复杂，可测性低、维护困难
 
+
+<br/>
+<br/>
 | [⬅️ level10 Re-entrancy](../level10_reentrancy/README.md) | [level12 Privacy ➡️](../level12_privacy/README.md) |
 |:------------------------------|--------------------------:|

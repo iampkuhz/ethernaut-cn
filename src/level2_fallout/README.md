@@ -70,5 +70,8 @@ await contract.owner()
 3. 点击 `submit instance`， 提交通过！
 
 
+
+<br/>
+<br/>
 | [⬅️ level1 Fallback](../level1_fallback/README.md) | [level3 Coinflip ➡️](../level3_coinflip/README.md) |
 | :---------------------------------------------- | -------------------------------------: |

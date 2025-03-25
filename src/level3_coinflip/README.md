@@ -99,5 +99,8 @@ await contract.consecutiveWins().then(v => v.toString())
 9. 点击 `submit instance`， 提交通过！
 
 
+
+<br/>
+<br/>
 | [⬅️ level2 Fallout](../level2_fallout/README.md) | [level4 Telephone ➡️](../level4_telephone/README.md) |
 | :---------------------------------------------- | --------------------------------------------------: |

@@ -134,5 +134,8 @@ await contract.owner();
 > [!TIP]
 > 关于fallback和receive的用法，可以阅读: [Solidity中的回退函数fallback和receive详解](https://learnblockchain.cn/article/8435)
 
+
+<br/>
+<br/>
 | [⬅️ level5 Token](../level5_token/README.md) | [level7 Force ➡️](../level7_force/README.md) |
 |:------------------------------|--------------------------:|

@@ -83,5 +83,8 @@ contract Privacy {
 
 6. 在ethernaut网页上点击 `submit instance`，通过！
 
+
+<br/>
+<br/>
 | [⬅️ level11 Elevator](../level11_elevator/README.md) | [level13 ➡️](../level13_gatekeeper_one/README.md) |
 |:------------------------------|--------------------------:|

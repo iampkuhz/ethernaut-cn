@@ -49,5 +49,8 @@ https://consensys.io/blog/ethereum-dencun-upgrade-explained-part-1
 
 2. 此改动主要为后续的 Verkle 树升级提供兼容性。每次删除数据时，该路径上的所有信息都需要变更，增加了操作负担。
 
+
+<br/>
+<br/>
 | [⬅️ level6 delegation](../level6_delegation/README.md) | [level7 vault ➡️](../level8_vault/README.md) |
 |:------------------------------|--------------------------:|
