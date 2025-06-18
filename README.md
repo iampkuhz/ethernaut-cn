@@ -20,6 +20,7 @@
 |level15|[NaughtCoin](src/level15_naughtcoin/README.md)|`ERC-20`常见接口的使用方式|
 |level16|[Preservation](src/level16_preservation/README.md)|`delegatecall`的使用方法，多次调用达到攻击目标|
 |level17|[Recovery](src/level17_recovery/README.md)|`CREATE`操作码创建合约时的合约地址生成规则|
+|level18|[MagicNumber](src/level18_magicnumber/README.md)|合约编译生成的字节码规范，字节码与操作码的关系，字节码执行逻辑|
 
 
 
