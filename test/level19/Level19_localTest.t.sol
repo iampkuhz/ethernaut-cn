@@ -37,33 +37,41 @@ contract AlienCodex {
     // === AlienCodex 部分 ===
     bool public contact; // 紧跟在 slot0 低位，bool 1 byte
     bytes32[] public codex; // slot 1（动态数组）
+
     modifier onlyOwner() {
         require(msg.sender == owner, "caller is not the owner");
         _;
     }
+
     modifier contacted() {
         assert(contact);
         _;
     }
+
     constructor() public {
         owner = msg.sender;
     }
+
     function transferOwnership(address newOwner) public onlyOwner {
         require(newOwner != address(0), "new owner is zero");
         owner = newOwner;
     }
     // === AlienCodex 逻辑 ===
+
     function makeContact() public {
         contact = true;
     }
+
     function record(bytes32 _content) public contacted {
         codex.push(_content);
     }
+
     function retract() public contacted {
         assembly {
             sstore(codex.slot, sub(sload(codex.slot), 1))
         }
     }
+
     function revise(uint256 i, bytes32 _content) public contacted {
         assembly {
             mstore(0x0, codex.slot)
