@@ -4,6 +4,6 @@ out = "out"
 libs = ["lib"]
 
 # 需要在根目录下创建自己的 `.env` 文件并配置值
-rpc_url = "${HOLESKY_RPC_URL}"
+# rpc_url = "${HOLESKY_RPC_URL}"
 # sepolia 的chainid
 chain_id = 11155111

@@ -1,4 +1,3 @@
-
 # Level 20: Denial
 
 ## 1. 问题
@@ -77,5 +76,5 @@ contract PartnerHack {
 <br/>
 <br/>
 
-| [⬅️ level19 Allen Codex](../level19_allencodex/README.md) | [level22 Shop ➡️](../level22_shop/README.md) |
+| [⬅️ level19 Allen Codex](../level19_allencodex/README.md) | [level21 Shop ➡️](../level21_shop/README.md) |
 | :---------------------------------------------------------- | -----------------------------------------------: |
