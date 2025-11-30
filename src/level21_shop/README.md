@@ -69,4 +69,3 @@ contract BuyerHack {
 
 | [⬅️ level20 Denial](../level20_denial/README.md) | [level22 Dex ➡️](../level22_dex/README.md) |
 | :----------------------------------------------- | ------------------------------------------: |
-：

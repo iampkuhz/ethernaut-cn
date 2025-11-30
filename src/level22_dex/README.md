@@ -95,3 +95,8 @@ contract SwappableToken is ERC20 {
 > 这里我们提供一个测试文件 [Level22.t.sol](../../test/level22/Level22_localTest.t.sol)
 > 可以在提交之前进行本地调试，调试成功再在测试链上执行
 
+<br/>
+<br/>
+
+| [⬅️ level21 Shop](../level21_shop/README.md) | [level23 Dex Two ➡️](../level23_dex_two/README.md) |
+| :----------------------------------------------- | ------------------------------------------: |

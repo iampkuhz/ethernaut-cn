@@ -25,6 +25,7 @@
 |level20|[Denial](src/level20_denial/README.md)|`receive` 函数循环调用风险|
 |level21|[Shop](src/level21_shop/README.md)|`view` 函数特性|
 |level22|[Dex](src/level22_dex/README.md)|`DEX` 中 price 算法的重要性|
+|level23|[DexTwo](src/level23_dex_two/README.md)|`DEX` 中的必要校验|
 
 
 
