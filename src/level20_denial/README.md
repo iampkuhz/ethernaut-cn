@@ -3,6 +3,10 @@
 ## 1. 问题
 需要你阻止用户调用 `withdraw()` 函数来从合约中提款出去。
 
+<details>
+<summary>点击展开原始问题说明</summary>
+    
+
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
@@ -39,6 +43,8 @@ contract Denial {
 }
 ```
 
+</details>
+
 ## 2. 解法
 
 思路：设置 `partner` 的 `receive` 函数，在接受 `eth` 时，递归调用 `Denial.withdraw()`, 从而形成循环调用，直到 gas 超过上限。
@@ -73,6 +79,16 @@ contract PartnerHack {
 2. [设置 `partner` 地址](https://sepolia.etherscan.io/tx/0xe23acde5f24c60986483019796a3aa02e52c1325a44bae630c3b07ef20703d5d)
 
 3. [Submit instance](https://sepolia.etherscan.io/tx/0x845d4a42e5576b7fa10809e422905b55895e27790571c752b9e2f4c65f20efee), 通过！
+
+## 3. 官方说明
+
+> [!CAUTION]
+This level demonstrates that external calls to unknown contracts can still create denial of service attack vectors if a fixed amount of gas is not specified.
+
+If you are using a low level `call` to continue executing in the event an external call reverts, ensure that you specify a fixed gas stipend. For example `<Address>.call{gas: <gasAmount>}(data)`. Typically one should follow the [checks-effects-interactions](https://docs.soliditylang.org/en/latest/security-considerations.html#use-the-checks-effects-interactions-pattern) pattern to avoid reentrancy attacks, there can be other circumstances (such as multiple external calls at the end of a function) where issues such as this can arise.
+
+Note: An external CALL can use at most 63/64 of the gas currently available at the time of the CALL. Thus, depending on how much gas is required to complete a transaction, a transaction of sufficiently high gas (i.e. one such that 1/64 of the gas is capable of completing the remaining opcodes in the parent call) can be used to mitigate this particular attack.
+
 <br/>
 <br/>
 

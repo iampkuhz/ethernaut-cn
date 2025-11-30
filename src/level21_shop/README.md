@@ -3,6 +3,16 @@
 ## 1. 问题
 修改 `Shop` 合约的 `price`, 将其价格降低
 
+<details>
+<summary>点击展开原始问题说明</summary>
+
+Сan you get the item from the shop for less than the price asked?
+
+Things that might help:
+* Shop expects to be used from a Buyer
+* Understanding restrictions of view functions
+  
+
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
@@ -25,6 +35,8 @@ contract Shop {
   }
 }
 ```
+
+</details>
 
 ## 2. 解法
 
@@ -63,6 +75,14 @@ contract BuyerHack {
 1. [部署 `BuyerHack` 合约](https://sepolia.etherscan.io/tx/0xe7c35a98bed7835d6961979479b38890242a1fbd39f6f5138dc4f7260da5bf6e)
 2. [从 `BuyerHack` 合约嵌套调用 `Shop.buy()` 触发 `price` 更新](https://sepolia.etherscan.io/tx/0xb4ac1e6df1c49937ac705f2c65525c388ef1a6d1357fa27743bea9ee6c0196bc)
 3. [Submit instance](https://sepolia.etherscan.io/tx/0xfb7a5d51b8c643198c8d3a2bb1b8acf978f5d052ebf9d9913f38dbc0bd9672e1), 通过！
+
+## 3. 官方说明
+
+> [!NOTE]
+> Сan you get the item from the shop for less than the price asked?
+> Things that might help:
+> * Shop expects to be used from a Buyer
+> * Understanding restrictions of view functions
 
 <br/>
 <br/>

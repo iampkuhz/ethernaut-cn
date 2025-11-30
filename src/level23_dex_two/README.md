@@ -5,7 +5,17 @@
 转走 `DexTwo` 合约中 `token1`, `token2` 的余额（全部取出），使得他后续无法继续提供双向的兑换服务
 
 <details>
-<summary>点击展开 `DexTwo` 代码</summary>
+<summary>点击展开原始问题说明</summary>
+    
+As we've repeatedly seen, interaction between contracts can be a source of unexpected behavior.
+
+Just because a contract claims to implement the [ERC20 spec](https://eips.ethereum.org/EIPS/eip-20) does not mean it's trust worthy.
+
+Some tokens deviate from the ERC20 spec by not returning a boolean value from their `transfer` methods. See [Missing return value bug - At least 130 tokens affected](https://medium.com/coinmonks/missing-return-value-bug-at-least-130-tokens-affected-d67bf08521ca).
+
+Other ERC20 tokens, especially those designed by adversaries could behave more maliciously.
+
+If you design a DEX where anyone could list their own tokens without the permission of a central authority, then the correctness of the DEX could depend on the interaction of the DEX contract and the token contracts being traded.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -77,9 +87,7 @@ contract SwappableTokenTwo is ERC20 {
 
 ## 3. 执行步骤
 
-1. [部署我们的 `FakeToken`](https://sepolia.etherscan.io/tx/0x9f84f7331effc329ceb6dc9479f59f5c157990b5bef68e38301e4da966a5bc6f)
-
-其核心逻辑如下：
+1. [部署我们的 `FakeToken`](https://sepolia.etherscan.io/tx/0x9f84f7331effc329ceb6dc9479f59f5c157990b5bef68e38301e4da966a5bc6f), 核心逻辑如下：
 
 ```solidity
 contract FakeToken {
@@ -112,9 +120,9 @@ contract FakeToken {
 
 
 > [!NOTE]
-> 完整可编译部署的代码见 [DexTwo.sol](../dextwo.sol)
+> 完整可编译部署的代码见 [DexTwo.sol](./dextwo.sol)
 
-2. [调用 `Steal`, 取出 `DexTwo` 的全部余额](https://sepolia.etherscan.io/tx/0xce53469350457a2c1e1f736a3745a90bffbdf0156a749721fc46b9924839540a)
+2. [调用 `FakeToken.steal()`](https://sepolia.etherscan.io/tx/0xce53469350457a2c1e1f736a3745a90bffbdf0156a749721fc46b9924839540a), 取出 `DexTwo` 的全部余额
    1. 每次设置 `amt` 恰好等于 `DexTwo` 持有的 `TokenX` 的余额, 是为了让 `getSwapAmount` 认为汇率是 `1:1`
    2. 每次设置 `FakeToken` 自身也要持有他发行的 token，是 `1:1` 兑换需要。`DexTwo` 有多少，`FakeToken` 也要有多少，才能保证能把 `TokenX` 按比例全部兑换出来
    3. 严格说 `Steal` 不一定要在 `FakeToken` 内实现，任意一个合约，或者用 EOA 发起多笔交易，也可以达到同样效果。这里我们简化实现
