@@ -26,6 +26,7 @@
 |level21|[Shop](src/level21_shop/README.md)|`view` 函数特性|
 |level22|[Dex](src/level22_dex/README.md)|`DEX` 中 price 算法的重要性|
 |level23|[DexTwo](src/level23_dex_two/README.md)|`DEX` 中的必要校验|
+|level24|[PuzzleWallet](src/level24_puzzle_wallet/README.md)|`delegatecall` 不改变 `storage`, `msg.sender`, `msg.value` 等信息|
 
 
 
